@@ -6,9 +6,13 @@
 ```batch
 python -m venv virtualenv
 ```
-### Install all libs from requirements.txt
+### Activate Virtual Environment
 ```batch
-\venv\Scripts\activate
+\virtualenv\Scripts\activate
+```
+### Install the required packages
+```batch
+python -m pip install -r requirements.txt
 ```
 ### Run chromadb
 ```batch
