@@ -3,17 +3,18 @@ _VENDORS = {
     "huggingface":"huggingface",
     "openai":"openai",
     "cohere":"cohere",
-    "anthropic":"anthropic"
+    "anthropic":"anthropic",
 }
 
 _EMBEDDING_MODELS = {
     "text-embedding-004" : _VENDORS["googlegenai"],
-    "BAAI/bge-m3": _VENDORS["huggingface"]
+    "BAAI/bge-m3": _VENDORS["huggingface"],
+    "BAAI/bge-en-icl": _VENDORS["huggingface"],
 }
 
 _RERANKERS = {
     "BAAI/bge-reranker-base": _VENDORS["huggingface"],
-    "rerank-multilingual-v3.0": _VENDORS["cohere"]
+    "rerank-multilingual-v3.0": _VENDORS["cohere"],
 }
 
 _LLMS = {
@@ -29,4 +30,6 @@ _LLMS = {
     "meta-llama/Llama-2-70b-chat-hf": _VENDORS["huggingface"],
     "meta-llama/Meta-Llama-3-8B-Instruct": _VENDORS["huggingface"],
     "meta-llama/Meta-Llama-3-70B-Instruct": _VENDORS["huggingface"],
+    "meta-llama/Llama-3.2-3B-Instruct": _VENDORS["huggingface"],
+    "meta-llama/Llama-3.1-70B-Instruct": _VENDORS["huggingface"],
 }

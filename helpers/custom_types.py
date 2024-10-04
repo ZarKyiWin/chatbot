@@ -7,12 +7,13 @@ _EMBEDDING_TYPES = Literal[
     "text-embedding-3-small",
     "text-embedding-ada-002",
     "text-embedding-004",
-    "BAAI/bge-m3"
+    "BAAI/bge-m3",
+    "BAAI/bge-en-icl",
 ]
 
 _RERANKER_TYPES = Literal[
     "BAAI/bge-reranker-base",
-    "rerank-multilingual-v3.0"
+    "rerank-multilingual-v3.0",
 ]
 
 _LLM_TYPES = Literal[
@@ -28,6 +29,8 @@ _LLM_TYPES = Literal[
     "meta-llama/Llama-2-70b-chat-hf",
     "meta-llama/Meta-Llama-3-8B-Instruct",
     "meta-llama/Meta-Llama-3-70B-Instruct",
+    "meta-llama/Llama-3.2-3B-Instruct",
+    "meta-llama/Llama-3.1-70B-Instruct",
 ]
 
 class _IngestDataResult(TypedDict):

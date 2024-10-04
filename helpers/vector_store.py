@@ -11,7 +11,7 @@ from .config import Config
 def get_vector_store_instance(
         embedding_model : _EMBEDDING_TYPES,
         index_name: str,
-        dimension: Optional[int] = None,
+        dimension: Optional[int] = 1024,
 ) -> VectorStore:
     embedding = get_embedding_model(embedding_model, dimension)
 
@@ -28,7 +28,7 @@ def ingest_data(
         urls: List[str],
         embedding_model: _EMBEDDING_TYPES,
         index_name: str,
-        dimension: Optional[int] = None,
+        dimension: Optional[int] = 1024,
         chunk_size: int = 2000,
         chunk_overlap: int = 20,
 ) -> _IngestDataResult:

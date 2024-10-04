@@ -13,12 +13,12 @@ import re
 
 load_dotenv()
 
-index_name = "test"
+index_name = "test14"
 def initialize_chat():
-    llm = get_llm(model_name="gemini-1.5-pro")
+    llm = get_llm(model_name="meta-llama/Llama-3.2-3B-Instruct")
     retriever = get_retriever(
         index_name=index_name,
-        embedding_model="text-embedding-004",
+        embedding_model="BAAI/bge-m3",
     )
     reranker = get_reranker(
         base_retriever=retriever, model_name="BAAI/bge-reranker-base"
@@ -76,7 +76,7 @@ with st.sidebar:
     st.text("Data Source: URLs")
     urls = st.text_area(label="Enter URLs separated by comma")
     if st.button(label="Ingest Data"):
-        ingest = ingest_data(urls = urls.split(","), embedding_model="text-embedding-004", index_name=index_name)
+        ingest = ingest_data(urls = urls.split(","), embedding_model="BAAI/bge-m3", index_name=index_name)
         st.session_state["ingest"] = True
     if st.session_state["ingest"]:
         st.text("Data Ingested")

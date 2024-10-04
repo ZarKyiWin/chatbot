@@ -6,7 +6,7 @@ from .vector_store import get_vector_store_instance
 def get_retriever(
     index_name: str,
     embedding_model: _EMBEDDING_TYPES,
-    dimension: Optional[int] = None,
+    dimension: Optional[int] = 1024,
     top_k: int = 4,
     score_threshold: float = 0.01,
 ) -> RetrieverLike:
