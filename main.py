@@ -13,9 +13,9 @@ import re
 
 load_dotenv()
 
-index_name = "test14"
-def initialize_chat():
-    llm = get_llm(model_name="meta-llama/Llama-3.2-3B-Instruct")
+index_name = "test15"
+def initialize_chat(instruction):
+    llm = get_llm(model_name="meta-llama/Llama-3.1-70B-Instruct")
     retriever = get_retriever(
         index_name=index_name,
         embedding_model="BAAI/bge-m3",
@@ -23,7 +23,7 @@ def initialize_chat():
     reranker = get_reranker(
         base_retriever=retriever, model_name="BAAI/bge-reranker-base"
     )
-    return create_conversational_retrieval_chain(llm=llm, retriever=reranker)
+    return create_conversational_retrieval_chain(llm=llm, retriever=reranker, instruction=instruction)
 
 def response_generator(prompt):
     if "context" in st.session_state:
@@ -49,8 +49,12 @@ def response_generator(prompt):
 
 st.title("Simple chat")
 
+with st.sidebar:
+    instruction = st.text_area(label= " Enter the instruction : ")
+    st.session_state["instruction"] = True
+
 if "chain" not in st.session_state:
-    st.session_state.chain = initialize_chat()
+    st.session_state.chain = initialize_chat(instruction=instruction)
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
